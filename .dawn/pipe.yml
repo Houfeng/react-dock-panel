@@ -21,6 +21,12 @@ build:
       disabled: true
     folders:
       js: ./
+    library: true
+    env: production
+    umd:
+      library: DockPanel
+      libraryTarget: umd
+      umdNamedDefine: true
       
 test:
   - name: lint

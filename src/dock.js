@@ -11,9 +11,8 @@
   const styleElement = document.createElement('style');
   styleContainer.appendChild(styleElement);
   styleElement.innerHTML = `[data-layout="dock"]{
-    position:relative !important;
+    position:relative;
     box-sizing:border-box !important;
-    overflow:hidden !important;
   }
   [data-layout="dock"] [data-dock]{
     position:absolute !important;
