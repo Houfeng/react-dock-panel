@@ -1,0 +1,34 @@
+init:
+  - name: pkginfo
+
+dev:
+  - name: clean
+  - name: webpack
+    common:
+      disabled: true
+    watch: true
+    entry: ./examples/*.js
+    template: ./examples/*.html
+    folders:
+      js: ./
+  - name: server
+  - name: browser-sync
+
+build:
+  - name: clean
+  - name: webpack
+    common:
+      disabled: true
+    folders:
+      js: ./
+      
+test:
+  - name: lint
+  - name: unit
+
+publish:
+  - name: shell
+    script:
+      - dn test
+      - dn build
+      - npm pu
