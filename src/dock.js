@@ -50,7 +50,6 @@ export default class Dock {
 
   _onDOMChanged = event => {
     event.stopPropagation();
-    console.log(event);
     setTimeout(() => this.calc(true), 0);
   };
 
@@ -58,12 +57,10 @@ export default class Dock {
   _bindEvents() {
     this._addEvent(window, 'resize', this._onResize);
     this._addEvent(this.box, 'resize', this._onResize);
-    this._addEvent(this.box, 'DOMAttrModified', this._onDOMChanged);
     this._addEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
     this._addEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._addEvent(item, 'resize', this._onResize);
-      this._addEvent(item, 'DOMAttrModified', this._onDOMChanged);
       this._addEvent(item, 'DOMNodeInserted', this._onDOMChanged);
       this._addEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
@@ -73,11 +70,9 @@ export default class Dock {
     this._removeEvent(window, 'resize', this._onResize);
     this._removeEvent(this.box, 'resize', this._onResize);
     this._removeEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
-    this._removeEvent(this.box, 'DOMAttrModified', this._onDOMChanged);
     this._removeEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._removeEvent(item, 'resize', this._onResize);
-      this._removeEvent(item, 'DOMAttrModified', this._onDOMChanged);
       this._removeEvent(item, 'DOMNodeInserted', this._onDOMChanged);
       this._removeEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
