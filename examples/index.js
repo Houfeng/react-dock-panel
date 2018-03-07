@@ -9,7 +9,7 @@ function App() {
         style={{ background: 'red', width: 100 }}>
       </DockPanel>
       <DockPanel dock="top"
-        style={{ background: 'green', height: 100 }}>
+        style={{ background: 'green', height: '20%' }}>
       </DockPanel>
       <DockPanel dock="bottom"
         style={{ background: 'blue', height: 100 }}>

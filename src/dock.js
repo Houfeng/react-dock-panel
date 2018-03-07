@@ -14,7 +14,7 @@
     position:relative;
     box-sizing:border-box !important;
   }
-  [data-layout="dock"] [data-dock]{
+  [data-layout="dock"]>[data-dock]{
     position:absolute !important;
     box-sizing:border-box !important;
   }`;
@@ -57,24 +57,24 @@ export default class Dock {
   _bindEvents() {
     this._addEvent(window, 'resize', this._onResize);
     this._addEvent(this.box, 'resize', this._onResize);
-    // this._addEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
-    // this._addEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
+    this._addEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
+    this._addEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._addEvent(item, 'resize', this._onResize);
-      // this._addEvent(item, 'DOMNodeInserted', this._onDOMChanged);
-      // this._addEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
+      this._addEvent(item, 'DOMNodeInserted', this._onDOMChanged);
+      this._addEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
   }
 
   destory() {
     this._removeEvent(window, 'resize', this._onResize);
     this._removeEvent(this.box, 'resize', this._onResize);
-    // this._removeEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
-    // this._removeEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
+    this._removeEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
+    this._removeEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._removeEvent(item, 'resize', this._onResize);
-      // this._removeEvent(item, 'DOMNodeInserted', this._onDOMChanged);
-      // this._removeEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
+      this._removeEvent(item, 'DOMNodeInserted', this._onDOMChanged);
+      this._removeEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
   }
 
