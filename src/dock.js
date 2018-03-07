@@ -57,24 +57,24 @@ export default class Dock {
   _bindEvents() {
     this._addEvent(window, 'resize', this._onResize);
     this._addEvent(this.box, 'resize', this._onResize);
-    this._addEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
-    this._addEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
+    // this._addEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
+    // this._addEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._addEvent(item, 'resize', this._onResize);
-      this._addEvent(item, 'DOMNodeInserted', this._onDOMChanged);
-      this._addEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
+      // this._addEvent(item, 'DOMNodeInserted', this._onDOMChanged);
+      // this._addEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
   }
 
   destory() {
     this._removeEvent(window, 'resize', this._onResize);
     this._removeEvent(this.box, 'resize', this._onResize);
-    this._removeEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
-    this._removeEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
+    // this._removeEvent(this.box, 'DOMNodeInserted', this._onDOMChanged);
+    // this._removeEvent(this.box, 'DOMNodeRemoved', this._onDOMChanged);
     this.items.forEach(item => {
       this._removeEvent(item, 'resize', this._onResize);
-      this._removeEvent(item, 'DOMNodeInserted', this._onDOMChanged);
-      this._removeEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
+      // this._removeEvent(item, 'DOMNodeInserted', this._onDOMChanged);
+      // this._removeEvent(item, 'DOMNodeRemoved', this._onDOMChanged);
     });
   }
 
@@ -92,8 +92,6 @@ export default class Dock {
         item.style.top = this.padding.top + 'px';
         item.style.left = this.padding.left + 'px';
         item.style.right = this.padding.right + 'px';
-        // item.style.width =
-        //   (this.width - this.padding.left - this.padding.right) + 'px';
         this.padding.top += item.offsetHeight;
         break;
       case 'right':
@@ -101,8 +99,6 @@ export default class Dock {
         item.style.right = this.padding.right + 'px';
         item.style.top = this.padding.top + 'px';
         item.style.bottom = this.padding.bottom + 'px';
-        // item.style.height =
-        //   (this.height - this.padding.top - this.padding.bottom) + 'px';
         this.padding.right += item.offsetWidth;
         break;
       case 'bottom':
@@ -110,8 +106,6 @@ export default class Dock {
         item.style.bottom = this.padding.bottom + 'px';
         item.style.left = this.padding.left + 'px';
         item.style.right = this.padding.right + 'px';
-        // item.style.width =
-        //   (this.width - this.padding.left - this.padding.right) + 'px';
         this.padding.bottom += item.offsetHeight;
         break;
       case 'left':
@@ -119,8 +113,6 @@ export default class Dock {
         item.style.left = this.padding.left + 'px';
         item.style.top = this.padding.top + 'px';
         item.style.bottom = this.padding.bottom + 'px';
-        // item.style.height =
-        //   (this.height - this.padding.top - this.padding.bottom) + 'px';
         this.padding.left += item.offsetWidth;
         break;
       case 'fill':
@@ -129,10 +121,6 @@ export default class Dock {
         item.style.right = this.padding.right + 'px';
         item.style.top = this.padding.top + 'px';
         item.style.bottom = this.padding.bottom + 'px';
-        // item.style.height =
-        //   (this.height - this.padding.top - this.padding.bottom) + 'px';
-        // item.style.width =
-        //   (this.width - this.padding.left - this.padding.right) + 'px';
         this.padding.top += item.offsetHeight;
         this.padding.right += item.offsetWidth;
         this.padding.bottom += item.offsetHeight;
