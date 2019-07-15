@@ -3,38 +3,28 @@ init:
 
 dev:
   - name: clean
+  - name: typescript
   - name: webpack
     common:
       disabled: true
     watch: true
-    entry: ./examples/*.js
-    template: ./examples/*.html
-    folders:
-      js: ./
+    entry: ./src/example/*.tsx
+    template: ./src/example/*.html
   - name: server
   - name: browser-sync
 
 build:
   - name: clean
-  - name: webpack
-    common:
-      disabled: true
-    folders:
-      js: ./
-    library: true
-    env: production
-    umd:
-      library: DockPanel
-      libraryTarget: umd
-      umdNamedDefine: true
+  - name: shell
+    script:
+      - tsc
       
 test:
-  - name: lint
-  - name: unit
+  - name: tslint
 
 publish:
   - name: shell
     script:
       - dn test
       - dn build
-      - npm pu
+      - npm pu --registry=http://registry.npmjs.org
