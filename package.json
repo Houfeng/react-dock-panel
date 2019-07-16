@@ -1,6 +1,6 @@
 {
   "name": "dock-panel",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -16,8 +16,8 @@
   "dependencies": {
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "dn-middleware-browser-sync": "^0.1.0",

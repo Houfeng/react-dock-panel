@@ -1,38 +1,46 @@
-# dn-template-react
+# DockPanel
 
-这是一个 React 项目模板，默认安装了 react/react-dom，同时单元测试等基础设施都已配置完成。
+![image](https://img.alicdn.com/tfs/TB1.rsTaXT7gK0jSZFpXXaTkpXa-1916-1108.png)
 
-## 使用
+面向 React 的 Dock 布局组件，类似 .NET Window Forms 中的 Dock 布局模式。
 
-使用这个模板需要先安装好 Dawn [https://github.com/alibaba/dawn](https://github.com/alibaba/dawn)
+# 安装
 
-### 初始化
-```sh
-mkdir demo
-cd demo
-dn init -t react
+```bash
+npm i dock-panel --save
 ```
 
-通过如上命令便可以完成项目的初始化
+# 使用
 
-### 测试
-```sh
-dn test
-```
+```tsx
+import React from "react";
+import { DockPanel, DockType } from "dock-panel";
 
-### 开发
-```sh
-dn dev
+function App() {
+  return (
+    <DockPanel style={{ width: "100%", height: "100%" }}>
+      <DockPanel
+        dock={DockType.left}
+        style={{ background: "red", width: 100 }}
+      >
+        left
+      </DockPanel>
+      <DockPanel
+        dock={DockType.top}
+        style={{ background: "green", height: "20%" }}
+      >
+        top
+      </DockPanel>
+      <DockPanel
+        dock={DockType.bottom}
+        style={{ background: "blue", height: 100 }}
+      >
+        bottom
+      </DockPanel>
+      <DockPanel dock={DockType.fill} style={{ background: "black" }}>
+        fill
+      </DockPanel>
+    </DockPanel>
+  );
+}
 ```
-
-### 构建
-```sh
-dn build
-```
-
-### 发布
-```
-dn publish
-```
-
-默认的发布配置是「发布到 npm」，请根据需要更改 `.dawn/pipe.yml` 进行 `publish` 配置
