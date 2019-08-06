@@ -7,8 +7,11 @@
 
 // 自动创建样式
 ((document: Document) => {
+  const styleId = "__dock_panel_style__";
+  if (document.querySelector("#" + styleId)) return;
   const styleContainer = document.head || document.body;
   const styleElement = document.createElement("style");
+  styleElement.id = styleId;
   styleContainer.appendChild(styleElement);
   styleElement.innerHTML = `[data-layout="dock"]{
     position:relative;
