@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { Dock, DockType } from "./Dock";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Dock, DockType } from './Dock';
 
 /**
  * DockPanel 属性
@@ -35,6 +35,10 @@ export class DockPanel extends Component<IDockPanelProps> {
   componentDidMount() {
     const element = ReactDOM.findDOMNode(this) as HTMLElement;
     this.dock = new Dock(element);
+  }
+
+  componentDidUpdate() {
+    if (this.dock) this.dock.calc(true);
   }
 
   componentWillUnMount() {

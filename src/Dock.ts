@@ -117,24 +117,24 @@ export class Dock {
   protected _bindEvents() {
     this._addEvent(window, "resize", this._onResize);
     this._addEvent(this.element, "resize", this._onResize);
-    this._addEvent(this.element, "DOMNodeInserted", this._onDOMChanged);
-    this._addEvent(this.element, "DOMNodeRemoved", this._onDOMChanged);
+    // this._addEvent(this.element, "DOMNodeInserted", this._onDOMChanged);
+    // this._addEvent(this.element, "DOMNodeRemoved", this._onDOMChanged);
     this.children.forEach(item => {
       this._addEvent(item, "resize", this._onResize);
-      this._addEvent(item, "DOMNodeInserted", this._onDOMChanged);
-      this._addEvent(item, "DOMNodeRemoved", this._onDOMChanged);
+      // this._addEvent(item, "DOMNodeInserted", this._onDOMChanged);
+      // this._addEvent(item, "DOMNodeRemoved", this._onDOMChanged);
     });
   }
 
   public destory() {
     this._removeEvent(window, "resize", this._onResize);
     this._removeEvent(this.element, "resize", this._onResize);
-    this._removeEvent(this.element, "DOMNodeInserted", this._onDOMChanged);
-    this._removeEvent(this.element, "DOMNodeRemoved", this._onDOMChanged);
+    // this._removeEvent(this.element, "DOMNodeInserted", this._onDOMChanged);
+    // this._removeEvent(this.element, "DOMNodeRemoved", this._onDOMChanged);
     this.children.forEach(item => {
       this._removeEvent(item, "resize", this._onResize);
-      this._removeEvent(item, "DOMNodeInserted", this._onDOMChanged);
-      this._removeEvent(item, "DOMNodeRemoved", this._onDOMChanged);
+      // this._removeEvent(item, "DOMNodeInserted", this._onDOMChanged);
+      // this._removeEvent(item, "DOMNodeRemoved", this._onDOMChanged);
     });
   }
 
