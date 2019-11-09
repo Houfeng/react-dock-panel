@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Dock, DockType } from './Dock';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { Dock, DockType } from "./Dock";
 
 /**
  * DockPanel 属性
